@@ -84,7 +84,7 @@ public class ErrorCodeUtil {
         enums.addAll(Arrays.asList(CommHttpStatusEnum.values()));
         enums.addAll(Arrays.asList(CommDBEnum.values()));
         enums.addAll(Arrays.asList(CommLoginEnum.values()));
-        enums.addAll(Arrays.asList(CommRestApiEnum.values()));
+        enums.addAll(Arrays.asList(CommAPIEnum.values()));
         enums.addAll(Arrays.asList(CommFileEnum.values()));
         enums.addAll(Arrays.asList(CommEmailEnum.values()));
         enums.addAll(Arrays.asList(CommSMSEnum.values()));

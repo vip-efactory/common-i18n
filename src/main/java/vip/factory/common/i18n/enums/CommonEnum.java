@@ -10,9 +10,6 @@ import lombok.Getter;
 public enum CommonEnum implements IBaseErrorEnum {
     SUCCESS(0, "成功"),
     ERROR(1, "未知错误"),
-    INVALID_PARAM(2, "参数非法"),
-    INVALID_JSON(3, "JSON字符串非法."),
-    UNKNOWN_METHOD(4, "方法名未知"),
     ;
 
     private int errorCode;
