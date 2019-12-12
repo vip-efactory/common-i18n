@@ -75,7 +75,7 @@ public class ErrorCodeUtil {
 
     public static void main(String[] args) throws Exception {
         //生成的错误码文件的存放位置,直接在项目的指定位置,注意,如果手动修改过此文件,谨慎执行此main方法.
-        String pathanme = "src/main/resources/i18n/commerrorcode.properties";
+        String pathanme = "src/main/resources/i18n/CommErrorCode.properties";
         //容纳所有的条目
         List<String> lines = new ArrayList<String>();
         //所有要生成Properties文件的枚举类,将其加入列表中
