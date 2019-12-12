@@ -34,6 +34,8 @@ public class MessageSourceConfig {
     @Bean
     public MessageSource messageSource() {
         ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
+        messageSource.setDefaultEncoding("UTF-8");
+        messageSource.setDefaultLocale(Locale.SIMPLIFIED_CHINESE);
         // 加载需要的国际化文件：错误码，校验信息，业务信息
         messageSource.setBasenames("classpath:i18n/CommErrorCode", "classpath:i18n/ValidationMessages", "classpath:i18n/messages");
         return messageSource;
