@@ -1,11 +1,11 @@
-package vip.factory.common.i18n.enums;
+package vip.efactory.common.i18n.enums;
 
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import vip.factory.common.i18n.service.ILocaleMsgSourceService;
-import vip.factory.common.i18n.util.FileUtil;
+import vip.efactory.common.i18n.service.ILocaleMsgSourceService;
+import vip.efactory.common.i18n.util.FileUtil;
 
 import java.util.*;
 

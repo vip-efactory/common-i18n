@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  vip.factory.common.i18n.config.MessageSourceConfig\
+  vip.efactory.common.i18n.config.MessageSourceConfig\

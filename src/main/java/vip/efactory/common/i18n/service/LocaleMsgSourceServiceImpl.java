@@ -1,4 +1,4 @@
-package vip.factory.common.i18n.service;
+package vip.efactory.common.i18n.service;
 
 
 import org.springframework.beans.factory.annotation.Autowired;

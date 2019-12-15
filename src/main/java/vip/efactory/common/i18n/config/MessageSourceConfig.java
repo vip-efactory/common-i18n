@@ -1,4 +1,4 @@
-package vip.factory.common.i18n.config;
+package vip.efactory.common.i18n.config;
 
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;

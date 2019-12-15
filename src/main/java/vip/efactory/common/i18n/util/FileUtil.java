@@ -1,4 +1,4 @@
-package vip.factory.common.i18n.util;
+package vip.efactory.common.i18n.util;
 
 import org.apache.poi.util.IOUtils;
 import org.slf4j.Logger;

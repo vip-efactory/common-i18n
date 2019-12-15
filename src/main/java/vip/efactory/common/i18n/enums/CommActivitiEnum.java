@@ -1,4 +1,4 @@
-package vip.factory.common.i18n.enums;
+package vip.efactory.common.i18n.enums;
 
 import lombok.Getter;
 
