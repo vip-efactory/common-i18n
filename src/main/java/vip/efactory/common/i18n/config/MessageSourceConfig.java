@@ -7,6 +7,8 @@ import org.springframework.context.support.ReloadableResourceBundleMessageSource
 import org.springframework.validation.Validator;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver;
+import vip.efactory.common.i18n.service.ILocaleMsgSourceService;
+import vip.efactory.common.i18n.service.LocaleMsgSourceServiceImpl;
 
 import java.util.Locale;
 
@@ -49,5 +51,14 @@ public class MessageSourceConfig {
         LocalValidatorFactoryBean validator = new LocalValidatorFactoryBean();
         validator.setValidationMessageSource(messageSource);
         return validator;
+    }
+
+    /**
+     * 这是一个专门用来处理国际化的组件
+     *  以后可以优化使用配置的文件里的参数
+     */
+    @Bean
+    public ILocaleMsgSourceService iLocaleMsgSourceService(MessageSource messageSource){
+        return new LocaleMsgSourceServiceImpl(messageSource);
     }
 }

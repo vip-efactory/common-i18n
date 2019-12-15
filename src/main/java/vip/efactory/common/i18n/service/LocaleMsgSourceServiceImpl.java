@@ -12,7 +12,7 @@ import java.util.Locale;
  * 这是一个专门用来处理国际化的组件
  * 以后可以优化使用配置的文件里的参数
  */
-@Component
+//@Component
 public class LocaleMsgSourceServiceImpl implements ILocaleMsgSourceService {
 
     /**
@@ -20,9 +20,12 @@ public class LocaleMsgSourceServiceImpl implements ILocaleMsgSourceService {
      *
      * @author dbdu
      */
-    @Autowired
+//    @Autowired
     private MessageSource messageSource;
 
+    public LocaleMsgSourceServiceImpl(MessageSource messageSource) {
+        this.messageSource = messageSource;
+    }
 
     @Override
     public String getMessage(String key) {
