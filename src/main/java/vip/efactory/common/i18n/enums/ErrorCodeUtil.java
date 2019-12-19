@@ -1,6 +1,7 @@
 package vip.efactory.common.i18n.enums;
 
 
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -73,23 +74,19 @@ public class ErrorCodeUtil {
         return value;
     }
 
-    public static void main(String[] args) throws Exception {
+    //从main方法中独立，方便其他地方使用
+
+    /**
+     *  利用枚举生成国际化的资源文件
+     * @param fileName 仅仅是文件名，不包含路径与后缀
+     * @param enums
+     */
+    @SneakyThrows
+    public static void geni18nPropertiesFile(String fileName, List<IBaseErrorEnum> enums) {
         //生成的错误码文件的存放位置,直接在项目的指定位置,注意,如果手动修改过此文件,谨慎执行此main方法.
-        String pathanme = "src/main/resources/i18n/CommErrorCode.properties";
+        String pathanme = "src/main/resources/i18n/" + fileName + ".properties";
         //容纳所有的条目
         List<String> lines = new ArrayList<String>();
-        //所有要生成Properties文件的枚举类,将其加入列表中
-        List<IBaseErrorEnum> enums = new ArrayList<IBaseErrorEnum>();
-        enums.addAll(Arrays.asList(CommonEnum.values()));
-        enums.addAll(Arrays.asList(CommHttpStatusEnum.values()));
-        enums.addAll(Arrays.asList(CommDBEnum.values()));
-        enums.addAll(Arrays.asList(CommLoginEnum.values()));
-        enums.addAll(Arrays.asList(CommAPIEnum.values()));
-        enums.addAll(Arrays.asList(CommFileEnum.values()));
-        enums.addAll(Arrays.asList(CommEmailEnum.values()));
-        enums.addAll(Arrays.asList(CommSMSEnum.values()));
-        enums.addAll(Arrays.asList(CommActivitiEnum.values()));
-
         //生成的时间写入注释头中
         lines.add("# This file create at " + new Date() + " ,by ErrorCodeUtil! \n");
         String lastClass = "";
@@ -109,5 +106,26 @@ public class ErrorCodeUtil {
         FileUtil.writeFileByLines(lines, pathanme);         //将所有的键值对写出!
         System.out.println("文件写出完毕!");
         System.out.println("请到此目录找生成的文件:" + pathanme);
+
+    }
+
+    public static void main(String[] args) throws Exception {
+        //生成的错误码文件的存放位置,直接在项目的指定位置,注意,如果手动修改过此文件,谨慎执行此main方法.
+        String fileName = "CommErrorCode";
+
+        //所有要生成Properties文件的枚举类,将其加入列表中
+        List<IBaseErrorEnum> enums = new ArrayList<IBaseErrorEnum>();
+        enums.addAll(Arrays.asList(CommonEnum.values()));
+        enums.addAll(Arrays.asList(CommHttpStatusEnum.values()));
+        enums.addAll(Arrays.asList(CommDBEnum.values()));
+        enums.addAll(Arrays.asList(CommLoginEnum.values()));
+        enums.addAll(Arrays.asList(CommAPIEnum.values()));
+        enums.addAll(Arrays.asList(CommFileEnum.values()));
+        enums.addAll(Arrays.asList(CommEmailEnum.values()));
+        enums.addAll(Arrays.asList(CommSMSEnum.values()));
+        enums.addAll(Arrays.asList(CommActivitiEnum.values()));
+
+        geni18nPropertiesFile(fileName, enums);
+
     }
 }
