@@ -17,14 +17,14 @@ import vip.efactory.common.i18n.service.LocaleMsgSourceServiceImpl;
 import java.util.Locale;
 
 /**
- * 国际化配置
+ * 国际化信息配置类
  */
 @Configuration
 public class LocaleConfig implements WebMvcConfigurer {
 
     /*
      *  关于国际化处理器，Spring-webmvc5.2.2中支持：CookieLocaleResolver，SessionLocaleResolver，FixedLocaleResolver，AcceptHeaderLocaleResolver
-    此处我使用AcceptHeaderLocaleResolver
+     * 此处我使用：SessionLocaleResolver
      */
     @Bean
     public LocaleResolver localeResolver() {

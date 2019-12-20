@@ -2,6 +2,9 @@ package vip.efactory.common.i18n.enums;
 
 import lombok.Getter;
 
+/**
+ * 审批流相关的错误码定义
+ */
 @Getter
 public enum CommActivitiEnum implements IBaseErrorEnum {
     DELETE_DELOYMENT_PROCESS_ERROR(0, "流程文件删除错误"),

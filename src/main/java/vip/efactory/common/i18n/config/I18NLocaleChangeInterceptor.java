@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * 默认的LocaleChangeInterceptor只能从请求中获取区域信息，这样是不够的
- * 此处继承它，重写相关的方法，实现从header头中和请求中获取区域信息
+ * 此处继承它，重写相关的方法，实现从header头中和请求中获取区域locale信息
  */
 public class I18NLocaleChangeInterceptor extends LocaleChangeInterceptor {
 
@@ -50,10 +50,7 @@ public class I18NLocaleChangeInterceptor extends LocaleChangeInterceptor {
     }
 
     /**
-     * 和父类中的方法一样，之所以在此处出现，是因为方法为私有，但是又需要用到
-     *
-     * @param currentMethod
-     * @return
+     * 和父类中的方法一样，之所以在此处出现，是因为方法为私有，但是又需要用到.
      */
     private boolean checkHttpMethod(String currentMethod) {
         String[] configuredMethods = getHttpMethods();

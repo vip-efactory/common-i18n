@@ -1,10 +1,8 @@
 package vip.efactory.common.i18n.service;
 
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
-import org.springframework.stereotype.Component;
 
 import java.util.Locale;
 
@@ -17,8 +15,6 @@ public class LocaleMsgSourceServiceImpl implements ILocaleMsgSourceService {
 
     /**
      * Description:注入Spring提供的Bean
-     *
-     * @author dbdu
      */
 //    @Autowired
     private MessageSource messageSource;

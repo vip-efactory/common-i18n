@@ -3,7 +3,9 @@ package vip.efactory.common.i18n.enums;
 
 import lombok.Getter;
 
-
+/**
+ * 数据库操作相关的错误码定义
+ */
 @Getter
 public enum CommDBEnum implements IBaseErrorEnum {
     UNKNOWN(0, "数据库操作异常"),

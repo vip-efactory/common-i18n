@@ -2,6 +2,9 @@ package vip.efactory.common.i18n.enums;
 
 import lombok.Getter;
 
+/**
+ * API 接口相关的错误码定义
+ */
 @Getter
 public enum CommAPIEnum implements IBaseErrorEnum {
     // 登录获取token部分

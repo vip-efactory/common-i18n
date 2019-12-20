@@ -9,6 +9,7 @@ import lombok.Getter;
 public enum CommSMSEnum implements IBaseErrorEnum {
     SMS_AUTH_ERROR(1, "短信认证失败"),
     SMS_TEST_ERROR(2, "短信测试失败"),
+    SMS_SEND_FAILED(3, "短信发送失败"),
     ;
 
     private int errorCode;

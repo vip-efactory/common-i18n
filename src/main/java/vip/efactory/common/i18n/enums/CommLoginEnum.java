@@ -2,6 +2,9 @@ package vip.efactory.common.i18n.enums;
 
 import lombok.Getter;
 
+/**
+ * 登录相关的错误码
+ */
 @Getter
 public enum CommLoginEnum implements IBaseErrorEnum {
     UNKNOWN(0, "登录未知异常"),

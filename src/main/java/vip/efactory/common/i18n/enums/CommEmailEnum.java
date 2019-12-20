@@ -2,6 +2,9 @@ package vip.efactory.common.i18n.enums;
 
 import lombok.Getter;
 
+/**
+ * Email 相关错误码信息的定义
+ */
 @Getter
 public enum CommEmailEnum implements IBaseErrorEnum {
 

@@ -2,6 +2,9 @@ package vip.efactory.common.i18n.enums;
 
 import lombok.Getter;
 
+/**
+ * 文件操作相管的错误码
+ */
 @Getter
 public enum CommFileEnum implements IBaseErrorEnum {
     UNKNOWN(0, "文件操作失败"),
