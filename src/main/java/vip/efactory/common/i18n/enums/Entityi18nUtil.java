@@ -14,8 +14,25 @@ import java.util.List;
  * 本工具类是为了快速地将项目中的实体属性快速地转换为国际化的key和value
  */
 public class Entityi18nUtil {
+    private static List<String> locales = new ArrayList<>();  // 支持的国际化种类，参考了Java的Locale类的种类
+    private static List<Class> entities = new LinkedList<>(); // 保存要生成国际化的类信息
 
-    private static List<Class> entities = new LinkedList<>();
+    /**
+     * 静态初始化支持的国际化种类，参考了Java的Locale类的种类
+     */
+    static {
+        locales.add("zh_CN");
+        locales.add("zh_TW");
+        locales.add("en_US");
+        locales.add("en_GB");
+        locales.add("en_CA");
+        locales.add("fr_FR");
+        locales.add("fr_CA");
+        locales.add("de_DE");
+        locales.add("it_IT");
+        locales.add("ja_JP");
+        locales.add("ko_KR");
+    }
 
     /**
      * 添加要生成国际化的实体
@@ -95,16 +112,29 @@ public class Entityi18nUtil {
         }
     }
 
+    /**
+     * 拷贝基础的生成文件，复制成其他的文件，以便专业的人员进一步进行优化翻译，
+     * 不指定生成哪些国际化就默认本文件中的默认列表
+     *
+     * @param pathanme 基础的文件，不带国际化参数的文件，包含路径及完整的文件名及后缀
+     */
+    public static void copyToLocale(String pathanme) {
+        // 拷贝成其他的国际化文件
+        for (String locale : locales) {
+            String newFileName = pathanme.substring(0, pathanme.lastIndexOf(".")) + "_" + locale + pathanme.substring(pathanme.lastIndexOf("."));
+            FileUtil.copyFile(pathanme, newFileName, true);
+            System.out.println("请到此目录找生成的文件:" + newFileName);
+        }
+    }
+
 
     public static void main(String[] args) {
-//        addEntity(Employee.class);
-//        //生成的错误码文件的存放位置,直接在项目的指定位置,注意,如果手动修改过此文件,谨慎执行此main方法.
-//        String fileName = "messages";
-//        List<String> locales = new ArrayList<>();
-//        locales.add("zh_CN");
-//        locales.add("zh_TW");
-//        locales.add("en_US");
+        addEntity(CommDBEnum.class);
+        //生成的错误码文件的存放位置,直接在项目的指定位置,注意,如果手动修改过此文件,谨慎执行此main方法.
+        String fileName = "messages";
+        // 生成基础的文件，并拷贝生成其他的国际化的文件
 //        copyToLocale(geni18nPropertiesFile(fileName, entities), locales);
+        copyToLocale(geni18nPropertiesFile(fileName, entities));
     }
 
 }
