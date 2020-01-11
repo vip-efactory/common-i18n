@@ -82,7 +82,7 @@ public class ErrorCodeUtil {
      * @param enums
      */
     @SneakyThrows
-    public static void geni18nPropertiesFile(String fileName, List<IBaseErrorEnum> enums) {
+    public static String geni18nPropertiesFile(String fileName, List<IBaseErrorEnum> enums) {
         //生成的错误码文件的存放位置,直接在项目的指定位置,注意,如果手动修改过此文件,谨慎执行此main方法.
         String pathanme = "src/main/resources/i18n/" + fileName + ".properties";
         //容纳所有的条目
@@ -106,7 +106,7 @@ public class ErrorCodeUtil {
         FileUtil.writeFileByLines(lines, pathanme);         //将所有的键值对写出!
         System.out.println("文件写出完毕!");
         System.out.println("请到此目录找生成的文件:" + pathanme);
-
+        return pathanme;
     }
 
     public static void main(String[] args) throws Exception {
@@ -125,7 +125,8 @@ public class ErrorCodeUtil {
         enums.addAll(Arrays.asList(CommSMSEnum.values()));
         enums.addAll(Arrays.asList(CommActivitiEnum.values()));
 
-        geni18nPropertiesFile(fileName, enums);
+        Entityi18nUtil.copyToLocale(geni18nPropertiesFile(fileName, enums));
+        Entityi18nUtil.copyToLocale("src/main/resources/i18n/ValidationMessages.properties");
 
     }
 }

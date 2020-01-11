@@ -18,20 +18,22 @@ public class Entityi18nUtil {
     private static List<Class> entities = new LinkedList<>(); // 保存要生成国际化的类信息
 
     /**
-     * 静态初始化支持的国际化种类，参考了Java的Locale类的种类
+     * 静态初始化支持的国际化种类，参考了Java的Locale类的种类，更多参见：http://www.localeplanet.com/icu/
      */
     static {
-        locales.add("zh_CN");
-        locales.add("zh_TW");
-        locales.add("en_US");
-        locales.add("en_GB");
-        locales.add("en_CA");
-        locales.add("fr_FR");
-        locales.add("fr_CA");
-        locales.add("de_DE");
-        locales.add("it_IT");
-        locales.add("ja_JP");
-        locales.add("ko_KR");
+        locales.add("zh_CN");   // 中文简体
+        locales.add("zh_TW");   // 中文繁体
+        locales.add("ru-RU");   // 俄语
+        locales.add("ru-KZ");   // 俄语 -哈萨克斯坦
+        locales.add("en_US");   // 美国英语
+        locales.add("en_GB");   // 英国英语
+        locales.add("en_CA");   // 加拿大英语
+        locales.add("fr_FR");   // 法国法语
+        locales.add("fr_CA");   // 加拿大法语
+        locales.add("de_DE");   // 德语
+        locales.add("it_IT");   // 意大利
+        locales.add("ja_JP");   // 日语
+        locales.add("ko_KR");   // 韩语
     }
 
     /**
