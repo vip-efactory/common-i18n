@@ -23,8 +23,8 @@ public class Entityi18nUtil {
     static {
         locales.add("zh_CN");   // 中文简体
         locales.add("zh_TW");   // 中文繁体
-        locales.add("ru-RU");   // 俄语
-        locales.add("ru-KZ");   // 俄语 -哈萨克斯坦
+        locales.add("ru_RU");   // 俄语
+        locales.add("ru_KZ");   // 俄语 -哈萨克斯坦
         locales.add("en_US");   // 美国英语
         locales.add("en_GB");   // 英国英语
         locales.add("en_CA");   // 加拿大英语
