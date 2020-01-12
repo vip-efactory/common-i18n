@@ -5,6 +5,7 @@ import vip.efactory.common.i18n.util.FileUtil;
 
 import java.io.File;
 import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedList;
@@ -88,6 +89,10 @@ public class Entityi18nUtil {
             // 得到当前实例的所有属性
             Field[] fields = clazz.getDeclaredFields();
             for (Field field : fields) {
+                // 检查是否是静态属性，是则跳过,因为静态属性有问题通常都是代码的问题与用户无关！
+               if (Modifier.isStatic(field.getModifiers())){
+                   continue;
+               }
                 lines.add(installResourceEntry(clazz, field) + "\n"); //生成实体对应的键值对
             }
         }
@@ -131,7 +136,7 @@ public class Entityi18nUtil {
 
 
     public static void main(String[] args) {
-        addEntity(CommDBEnum.class);
+        addEntity(Entityi18nUtil.class);
         //生成的错误码文件的存放位置,直接在项目的指定位置,注意,如果手动修改过此文件,谨慎执行此main方法.
         String fileName = "messages";
         // 生成基础的文件，并拷贝生成其他的国际化的文件
