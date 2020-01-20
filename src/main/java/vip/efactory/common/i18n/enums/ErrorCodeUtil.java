@@ -5,6 +5,7 @@ import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 import vip.efactory.common.i18n.service.ILocaleMsgSourceService;
 import vip.efactory.common.i18n.util.FileUtil;
 
@@ -67,7 +68,7 @@ public class ErrorCodeUtil {
     public static String getMessage(String key, String... args) {
         String value = null;
         value = localeMessageSourceService.getMessage(key, args);
-        if (null == value || value.equals(key)) {
+        if (StringUtils.isEmpty(value) || value.equals(key)) {
             value = key;
             log.warn("missing key [{}]", key);
         }
