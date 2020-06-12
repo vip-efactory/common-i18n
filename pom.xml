@@ -6,12 +6,13 @@
 
     <groupId>vip.efactory</groupId>
     <artifactId>common-i18n</artifactId>
-    <version>1.1.2</version>
+    <version>1.2.0</version>
     <properties>
         <java.version>1.8</java.version>
-        <spring.boot.version>2.2.2.RELEASE</spring.boot.version>
+        <spring.boot.version>2.3.0.RELEASE</spring.boot.version>
+        <validation.api.version>2.0.1.Final</validation.api.version>
         <poi.version>3.15</poi.version>
-        <lombok.version>1.18.10</lombok.version>
+        <lombok.version>1.18.12</lombok.version>
     </properties>
 
     <dependencies>
@@ -41,6 +42,13 @@
             <groupId>org.apache.poi</groupId>
             <artifactId>poi</artifactId>
             <version>${poi.version}</version>
+        </dependency>
+
+        <!-- 实体属性校验注解 -->
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>${validation.api.version}</version>
         </dependency>
     </dependencies>
 
