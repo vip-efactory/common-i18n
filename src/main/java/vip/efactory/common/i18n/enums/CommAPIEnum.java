@@ -13,6 +13,7 @@ public enum CommAPIEnum implements IBaseErrorEnum {
     // token验证部分
     AUTH_FAIL(200, "授权失败，无效授权码或无效状态信息"),
     TOKEN_INVALID(201, "无效的access_token"),
+    REFRESH_TOKEN_INVALID(202, "无效的refresh_token"),
 
     // 权限检查部分
     INSUFFICIENT_PERRMISSION(300, "权限不足"),

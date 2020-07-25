@@ -12,6 +12,8 @@ public enum CommEmailEnum implements IBaseErrorEnum {
     EMAIL_REGISTERED(2, "邮箱已注册"),
     EMAIL_TEST_ERROR(3, "Email配置测试失败，请检查配置"),
     EMAIL_QUEUE_INSERT_ERROR(4, "EMAIL队列已满，任务增加失败！"),
+    EMAIL_SEND_ERROR(5, "邮件发送失败，请检查配置"),
+    MAILTO_FORMAT_ERROR(6, "收件人{mailto}邮箱格式错误,正确案例:sam@abc.com"),
     ;
 
     private int errorCode;
