@@ -31,6 +31,7 @@ public enum CommDBEnum implements IBaseErrorEnum {
     SELECT_ERROR(400, "查找数据失败"),
     SELECT_NON_EXISTENT(401, "查找数据失败,查找对象不存在"),
     SELECT_PROPERTY_NOT_EMPTY(402, "查询属性条件不允许为空"),
+    SELECT_PROPERTY_NAME_NOT_EMPTY(403, "查询属性条件名不允许为空"),
 
     // 用户用主键查询或删除记录时
     KEY_NOT_NULL(500, "主键不允许为空"),
@@ -47,6 +48,7 @@ public enum CommDBEnum implements IBaseErrorEnum {
     }
 
 
+    @Override
     public int getErrorCode() {
         return errorCode + offset;
     }
