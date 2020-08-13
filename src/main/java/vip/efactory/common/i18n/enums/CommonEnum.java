@@ -23,6 +23,7 @@ public enum CommonEnum implements IBaseErrorEnum {
     }
 
 
+    @Override
     public int getErrorCode() {
         return errorCode + offset;
     }

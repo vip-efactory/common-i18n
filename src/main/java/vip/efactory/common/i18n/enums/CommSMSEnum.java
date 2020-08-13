@@ -23,6 +23,7 @@ public enum CommSMSEnum implements IBaseErrorEnum {
         this.reason = reason;
     }
 
+    @Override
     public int getErrorCode() {
         switch (this) {
 //		case SUCCESS:
@@ -32,4 +33,4 @@ public enum CommSMSEnum implements IBaseErrorEnum {
                 return errorCode + offset;
         }
     }
-};
+}

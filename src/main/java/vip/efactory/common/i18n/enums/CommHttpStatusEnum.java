@@ -480,6 +480,7 @@ public enum CommHttpStatusEnum implements IBaseErrorEnum {
     }
 
 
+    @Override
     public int getErrorCode() {
         return errorCode + offset;
     }

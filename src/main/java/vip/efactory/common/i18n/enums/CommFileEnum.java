@@ -34,6 +34,7 @@ public enum CommFileEnum implements IBaseErrorEnum {
         this.reason = reason;
     }
 
+    @Override
     public int getErrorCode() {
         return errorCode + offset;
     }

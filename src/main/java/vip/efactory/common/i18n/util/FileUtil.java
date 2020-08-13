@@ -21,15 +21,9 @@ public class FileUtil {
     public static final String SUFFIX_GIF = "gif";
 
     public static final Comparator<File> comparator = new Comparator<File>() {
+        @Override
         public int compare(File file, File newFile) {
-            if (file.lastModified() > newFile.lastModified()) {
-                return 1;
-            } else if (file.lastModified() == newFile.lastModified()) {
-                return 0;
-            } else {
-                return -1;
-            }
-
+            return Long.compare(file.lastModified(), newFile.lastModified());
         }
     };
 
@@ -672,14 +666,14 @@ public class FileUtil {
         int ch = testin.read();
         if (ch != 0xEF) {
             testin.unread(ch);
-        } else if ((ch = testin.read()) != 0xBB) { // if ch==0xef  
+        } else if ((ch = testin.read()) != 0xBB) { // if ch==0xef
             testin.unread(ch);
             testin.unread(0xef);
-        } else if ((ch = testin.read()) != 0xBF) { // if ch ==0xbb  
+        } else if ((ch = testin.read()) != 0xBF) { // if ch ==0xbb
             throw new IOException("错误的UTF-8格式文件");
-        } else { // if ch ==0xbf  
-            // 不需要做，这里是bom头被读完了  
-            // // System.out.println("still exist bom");  
+        } else { // if ch ==0xbf
+            // 不需要做，这里是bom头被读完了
+            // // System.out.println("still exist bom");
         }
         return testin;
 

@@ -6,7 +6,7 @@
 
     <groupId>vip.efactory</groupId>
     <artifactId>common-i18n</artifactId>
-    <version>1.2.0</version>
+    <version>1.2.1</version>
     <properties>
         <java.version>1.8</java.version>
         <spring.boot.version>2.3.0.RELEASE</spring.boot.version>

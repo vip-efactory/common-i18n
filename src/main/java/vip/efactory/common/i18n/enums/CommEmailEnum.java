@@ -27,6 +27,7 @@ public enum CommEmailEnum implements IBaseErrorEnum {
         this.reason = reason;
     }
 
+    @Override
     public int getErrorCode() {
         switch (this) {
 //            case SUCCESS:

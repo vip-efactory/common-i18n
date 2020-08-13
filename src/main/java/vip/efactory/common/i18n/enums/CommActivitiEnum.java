@@ -4,6 +4,7 @@ import lombok.Getter;
 
 /**
  * 审批流相关的错误码定义
+ * @author dbdu
  */
 @Getter
 public enum CommActivitiEnum implements IBaseErrorEnum {
@@ -37,6 +38,7 @@ public enum CommActivitiEnum implements IBaseErrorEnum {
         this.reason = reason;
     }
 
+    @Override
     public int getErrorCode() {
         return errorCode + offset;
     }
