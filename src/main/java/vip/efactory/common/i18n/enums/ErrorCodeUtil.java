@@ -125,6 +125,7 @@ public class ErrorCodeUtil {
         enums.addAll(Arrays.asList(CommEmailEnum.values()));
         enums.addAll(Arrays.asList(CommSMSEnum.values()));
         enums.addAll(Arrays.asList(CommActivitiEnum.values()));
+        enums.addAll(Arrays.asList(CommADSearchEnum.values()));
 
         Entityi18nUtil.copyToLocale(geni18nPropertiesFile(fileName, enums));
         Entityi18nUtil.copyToLocale("src/main/resources/i18n/ValidationMessages.properties");
