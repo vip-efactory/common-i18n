@@ -7,6 +7,7 @@ import lombok.Getter;
  */
 @Getter
 public enum CommFileEnum implements IBaseErrorEnum {
+    //
     UNKNOWN(0, "文件操作失败"),
     FILE_NON_EXISTENT(1, "文件不存在"),
     FILE_TOO_LARGE(2, "文件过大"),
@@ -24,12 +25,12 @@ public enum CommFileEnum implements IBaseErrorEnum {
     PO_ID_MISSING(14, "实体Id缺失，上传文件保存失败！"),
     ;
 
-    private int errorCode;
-    private String reason;
+    private final int errorCode;
+    private final String reason;
     private static final int MODULE_TYPE = ModuleTypeDefine.FILE;
-    private static int offset = ErrorCodeUtil.register(MODULE_TYPE);
+    private static final int offset = ErrorCodeUtil.register(MODULE_TYPE);
 
-    private CommFileEnum(int errorCode, String reason) {
+    CommFileEnum(int errorCode, String reason) {
         this.errorCode = errorCode;
         this.reason = reason;
     }
@@ -39,4 +40,4 @@ public enum CommFileEnum implements IBaseErrorEnum {
         return errorCode + offset;
     }
 
-};
+}

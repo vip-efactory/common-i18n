@@ -4,6 +4,7 @@ import lombok.Getter;
 
 /**
  * API 接口相关的错误码定义
+ * @author dusuanyun
  */
 @Getter
 public enum CommAPIEnum implements IBaseErrorEnum {
@@ -27,12 +28,12 @@ public enum CommAPIEnum implements IBaseErrorEnum {
     TIMEOUT(500, "请求超时"),
     ;
 
-    private int errorCode;
-    private String reason;
+    private final int errorCode;
+    private final String reason;
     private static final int MODULE_TYPE = ModuleTypeDefine.REST;
-    private static int offset = ErrorCodeUtil.register(MODULE_TYPE);
+    private static final int offset = ErrorCodeUtil.register(MODULE_TYPE);
 
-    private CommAPIEnum(int errorCode, String reason) {
+    CommAPIEnum(int errorCode, String reason) {
         this.errorCode = errorCode;
         this.reason = reason;
     }

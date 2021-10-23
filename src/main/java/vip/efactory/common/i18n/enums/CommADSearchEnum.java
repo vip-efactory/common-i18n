@@ -4,9 +4,11 @@ import lombok.Getter;
 
 /**
  * 高级搜索枚举相关的错误信息
+ * @author dusuanyun
  */
 @Getter
 public enum CommADSearchEnum implements IBaseErrorEnum {
+    //
     CONDITION_NAME_IS_NULL(1, "查询条件名称不允许为空"),
     CONDITION_NAME_IS_ILLEGAL(2, "查询条件名称非法"),
     CONDITION_VALUE_IS_NULL(3, "查询条件值不允许为空"),
@@ -15,13 +17,13 @@ public enum CommADSearchEnum implements IBaseErrorEnum {
 
     ;
 
-    private int errorCode;
-    private String reason;
+    private final int errorCode;
+    private final String reason;
 
     private static final int MODULE_TYPE = ModuleTypeDefine.ADSEARCH;
-    private static int offset = ErrorCodeUtil.register(MODULE_TYPE);
+    private static final int offset = ErrorCodeUtil.register(MODULE_TYPE);
 
-    private CommADSearchEnum(int errorCode, String reason) {
+    CommADSearchEnum(int errorCode, String reason) {
         this.errorCode = errorCode;
         this.reason = reason;
     }

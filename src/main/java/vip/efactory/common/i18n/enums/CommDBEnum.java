@@ -5,9 +5,11 @@ import lombok.Getter;
 
 /**
  * 数据库操作相关的错误码定义
+ * @author dusuanyun
  */
 @Getter
 public enum CommDBEnum implements IBaseErrorEnum {
+    //
     UNKNOWN(0, "数据库操作异常"),
     CONNECT_FAILED(1, "连接数据库失败"),
 
@@ -37,10 +39,10 @@ public enum CommDBEnum implements IBaseErrorEnum {
     KEY_NOT_NULL(500, "主键不允许为空"),
     ;
 
-    private int errorCode;
-    private String reason;
+    private final int errorCode;
+    private final String reason;
     private static final int MODULE_TYPE = ModuleTypeDefine.DATABASE;
-    private static int offset = ErrorCodeUtil.register(MODULE_TYPE);
+    private static final int offset = ErrorCodeUtil.register(MODULE_TYPE);
 
     CommDBEnum(int errorCode, String reason) {
         this.errorCode = errorCode;

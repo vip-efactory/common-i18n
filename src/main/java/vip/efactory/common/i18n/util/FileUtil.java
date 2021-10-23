@@ -20,12 +20,7 @@ public class FileUtil {
     public static final String SUFFIX_JPEG = "jpeg";
     public static final String SUFFIX_GIF = "gif";
 
-    public static final Comparator<File> comparator = new Comparator<File>() {
-        @Override
-        public int compare(File file, File newFile) {
-            return Long.compare(file.lastModified(), newFile.lastModified());
-        }
-    };
+    public static final Comparator<File> comparator = Comparator.comparingLong(File::lastModified);
 
     /**
      * 计算传入的文件大小
@@ -46,8 +41,7 @@ public class FileUtil {
                 }
                 return size;
             } else {// 如果是文件则直接返回其大小,以“兆”为单位
-                double size = (double) file.length() / 1024 / 1024;
-                return size;
+                return (double) file.length() / 1024 / 1024;
             }
         } else {
             return 0.0;
@@ -77,7 +71,7 @@ public class FileUtil {
      */
     public static List<File> getFilesOrderByDate(File[] files) {
         List<File> fileList = Arrays.asList(files);
-        Collections.sort(fileList, comparator);
+        fileList.sort(comparator);
         return fileList;
     }
 
@@ -89,19 +83,12 @@ public class FileUtil {
      * @return
      */
     public static File[] getExtendFiles(File dir, final String extend) {
-        FilenameFilter filenameFilter = new FilenameFilter() {
-
-            @Override
-            public boolean accept(File dir, String name) {
-                return name.endsWith(extend);
-            }
-        };
-        File[] files = dir.listFiles(filenameFilter);
-        return files;
+        FilenameFilter filenameFilter = (dir1, name) -> name.endsWith(extend);
+        return dir.listFiles(filenameFilter);
     }
 
     public static List<File> getAllFiles(File dir) throws Exception {
-        List<File> files = new ArrayList<File>();
+        List<File> files = new ArrayList<>();
         if (dir.isDirectory()) {// 如果是目录
             File[] documentArr = dir.listFiles();// 取目录下的所有文件
             files.add(dir);
@@ -422,22 +409,18 @@ public class FileUtil {
                 // 复制文件
                 if (files[i].isFile()) {
                     flag = copyFile(files[i].getAbsolutePath(), destDirName + files[i].getName(), overlay);
-                    if (!flag)
+                    if (!flag) {
                         break;
+                    }
                 } else if (files[i].isDirectory()) {
                     flag = copyDirectory(files[i].getAbsolutePath(), destDirName + files[i].getName(), overlay);
-                    if (!flag)
+                    if (!flag) {
                         break;
+                    }
                 }
             }
         }
-        if (!flag) {
-            // MESSAGE = "复制目录" + srcDirName + "至" + destDirName + "失败！";
-            // JOptionPane.showMessageDialog(null, MESSAGE);
-            return false;
-        } else {
-            return true;
-        }
+        return flag;
     }
 
     public static String joinPath(String... paths) {
@@ -707,6 +690,5 @@ public class FileUtil {
         System.out.println("adfgg的后缀：" + getExtension("adfgg"));
         System.out.println("adfgg.gg.doc 的后缀：" + getExtension("adfgg.gg.doc"));
     }
-
 
 }

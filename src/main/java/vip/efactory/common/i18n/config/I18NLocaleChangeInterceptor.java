@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * 默认的LocaleChangeInterceptor只能从请求中获取区域信息，这样是不够的
  * 此处继承它，重写相关的方法，实现从header头中和请求中获取区域locale信息
+ * @author dusuanyun
  */
 public class I18NLocaleChangeInterceptor extends LocaleChangeInterceptor {
 

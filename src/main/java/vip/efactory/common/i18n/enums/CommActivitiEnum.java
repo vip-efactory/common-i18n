@@ -8,6 +8,7 @@ import lombok.Getter;
  */
 @Getter
 public enum CommActivitiEnum implements IBaseErrorEnum {
+    // 流程文件删除错误
     DELETE_DELOYMENT_PROCESS_ERROR(0, "流程文件删除错误"),
     CHANGE_PROCESS_INSTANCE_STATE_ERROR(1, "更改流程文件状态错误"),
 
@@ -27,8 +28,8 @@ public enum CommActivitiEnum implements IBaseErrorEnum {
 
     TASK_WITHDRAW_ERROR(700, "任务撤销失败");
 
-    private int errorCode;
-    private String reason;
+    private final int errorCode;
+    private final String reason;
 
     private static final int MODULE_TYPE = ModuleTypeDefine.ACTIVITI;
     private static int offset = ErrorCodeUtil.register(MODULE_TYPE);

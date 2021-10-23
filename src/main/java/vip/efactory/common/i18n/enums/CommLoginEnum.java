@@ -4,9 +4,11 @@ import lombok.Getter;
 
 /**
  * 登录相关的错误码
+ * @author dusuanyun
  */
 @Getter
 public enum CommLoginEnum implements IBaseErrorEnum {
+    //
     UNKNOWN(0, "登录未知异常"),
     USERNAME_PWD(1, "登录失败，用户名或密码错误"),
     MODIFY_PWD(2, "修改密码失败"),
@@ -18,11 +20,11 @@ public enum CommLoginEnum implements IBaseErrorEnum {
     LOGIN_ATTEMPTS_EXCEEDS_LIMIT(8, "登录尝试次数超过限制次数！"),//login attempts exceeds the limit
     ;
 
-    private int errorCode;
-    private String reason;
-    private static int offset = ErrorCodeUtil.register(ModuleTypeDefine.LOGIN);
+    private final int errorCode;
+    private final String reason;
+    private static final int offset = ErrorCodeUtil.register(ModuleTypeDefine.LOGIN);
 
-    private CommLoginEnum(int errorCode, String reason) {
+    CommLoginEnum(int errorCode, String reason) {
         this.errorCode = errorCode;
         this.reason = reason;
     }
@@ -32,4 +34,4 @@ public enum CommLoginEnum implements IBaseErrorEnum {
         return errorCode + offset;
     }
 
-};
+}

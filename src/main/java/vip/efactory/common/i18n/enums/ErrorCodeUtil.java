@@ -11,10 +11,13 @@ import vip.efactory.common.i18n.util.FileUtil;
 
 import java.util.*;
 
+/**
+ * @author dusuanyun
+ */
 @Component
 @Slf4j
 public class ErrorCodeUtil {
-    private static List<Integer> moduleList = new Vector<Integer>();
+    private static final List<Integer> moduleList = new Vector<Integer>();
     private static ILocaleMsgSourceService localeMessageSourceService;
 
     //通过下面的方法为静态成员赋值!!!
@@ -36,7 +39,7 @@ public class ErrorCodeUtil {
     }
 
     //对每一个枚举实例,生成:key = value格式的条目!
-    public static String installResourceName(IBaseErrorEnum iEnum) throws Exception {
+    public static String installResourceName(IBaseErrorEnum iEnum) {
         return toPropertiesKey(iEnum) + "=" + toUnicodeString(iEnum.getReason());
     }
 
@@ -53,7 +56,7 @@ public class ErrorCodeUtil {
             if (c >= 0 && c <= 255) {
                 sb.append(c);
             } else {
-                sb.append("\\u" + Integer.toHexString(c));
+                sb.append("\\u").append(Integer.toHexString(c));
             }
         }
         return sb.toString();

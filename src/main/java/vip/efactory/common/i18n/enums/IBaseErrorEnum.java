@@ -2,6 +2,7 @@ package vip.efactory.common.i18n.enums;
 
 /**
  * 定义基本的错误枚举应有的方法
+ * @author dusuanyun
  */
 public interface IBaseErrorEnum {
     /**

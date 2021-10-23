@@ -13,10 +13,13 @@ import java.util.List;
 
 /**
  * 本工具类是为了快速地将项目中的实体属性快速地转换为国际化的key和value
+ * @author dusuanyun
  */
 public class Entityi18nUtil {
-    private static List<String> locales = new ArrayList<>();  // 支持的国际化种类，参考了Java的Locale类的种类
-    private static List<Class> entities = new LinkedList<>(); // 保存要生成国际化的类信息
+    // 支持的国际化种类，参考了Java的Locale类的种类
+    private static final List<String> locales = new ArrayList<>();
+    // 保存要生成国际化的类信息
+    private static final List<Class> entities = new LinkedList<>();
 
     /**
      * 静态初始化支持的国际化种类，参考了Java的Locale类的种类，更多参见：http://www.localeplanet.com/icu/
