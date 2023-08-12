@@ -18,6 +18,7 @@ import java.util.Locale;
 
 /**
  * 国际化信息配置类
+ * @author dusuanyun
  */
 @Configuration
 public class LocaleConfig implements WebMvcConfigurer {
@@ -27,7 +28,7 @@ public class LocaleConfig implements WebMvcConfigurer {
      * 此处我使用：SessionLocaleResolver
      */
     @Bean
-    public LocaleResolver localeResolver() {
+    public static LocaleResolver localeResolver() {
 //        AcceptHeaderLocaleResolver ahlr = new AcceptHeaderLocaleResolver();
         SessionLocaleResolver ahlr = new SessionLocaleResolver();
         //设置默认区域, 中文简体
